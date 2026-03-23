@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pagination = ({ page, setpage }) => {
+const Pagination = ({ page, setpage, totalPages }) => {
   return (
     <div className="pagination">
       <button
@@ -10,7 +10,14 @@ const Pagination = ({ page, setpage }) => {
         Prev
       </button>
 
-      <button onClick={() => setpage(page + 1)}>
+      <span className="page-number">
+        Page {page} of {totalPages}
+      </span>
+
+      <button
+        onClick={() => setpage(page + 1)}
+        disabled={page === totalPages}
+      >
         Next
       </button>
     </div>

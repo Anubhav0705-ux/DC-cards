@@ -3,13 +3,21 @@ import Charactercard from "../components/Charactercard";
 import Pagination from "../components/Pagination";
 import Charactermodel from "../components/Charactermodel";
 
-const Characterpages = ({ character, page, setpage }) => {
+const Characterpages = ({ character, page, setpage, totalPages }) => {
   const [showModal, setshowModal] = useState(false);
   const [selectcharacter, setselectcharacter] = useState(null);
 
   return (
     <div className="page">
-      <h1>Marvel Characters</h1>
+
+      {/* 🔵 DC LOGO */}
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/3d/DC_Comics_logo.svg"
+        alt="DC Logo"
+        className="dc-logo"
+      />
+
+      <h1>DC Universe</h1>
 
       <div className="grid">
         {character.map((char) => (
@@ -31,7 +39,11 @@ const Characterpages = ({ character, page, setpage }) => {
         />
       )}
 
-      <Pagination page={page} setpage={setpage} />
+      <Pagination
+        page={page}
+        setpage={setpage}
+        totalPages={totalPages}
+      />
     </div>
   );
 };

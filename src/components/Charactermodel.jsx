@@ -4,8 +4,8 @@ const Charactermodel = ({ characters, onClose }) => {
   if (!characters) return null;
 
   return (
-    <div className="model-overlay">
-      <div className="model">
+    <div className="model-overlay" onClick={onClose}>
+      <div className="model" onClick={(e) => e.stopPropagation()}>
         <img src={characters.image} alt={characters.name} />
 
         <h2>{characters.name}</h2>
